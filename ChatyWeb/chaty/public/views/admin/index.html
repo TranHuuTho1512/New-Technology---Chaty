@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Quản lí | CHATY</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="demo.css" />
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="center">
+                <div class="card card-outline card-primary">
+                    <div class="card-header text-center">
+                        <a href="" class="h1"><b>Đăng Nhập</b></a>
+                    </div>
+                    <div class="card-body">
+                        <div class="divcenter" style="font-size: 20px">
+                            Quản lí CHATY
+                        </div>
+                        <br />
+
+                        <form
+                            action=""
+                            method="post"
+                            id="formDN"
+                            name="formDN"
+                            modelAttribute="nguoiDung"
+                            onsubmit="return(validateDN());"
+                        >
+                            <div class="inputWithIcon">
+                                <input
+                                    id="txtSDT"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Mã số nhân viên"
+                                />
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <label id="sdtError" class="error"></label>
+                            </div>
+
+                            <div class="inputWithIcon">
+                                <input
+                                    id="matKhau"
+                                    name="matKhau"
+                                    type="password"
+                                    class="form-control"
+                                    placeholder="Mật khẩu"
+                                />
+                                <i class="fas fa-lock" aria-hidden="true"></i>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <label id="matKhauError" class="error"></label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12" style="text-align: center">
+                                    <!--Chuyen sang trang home chat-->
+                                    <button
+                                        id="login"
+                                        type="submit"
+                                        class="btn btn-primary btn-block"
+                                    >
+                                        Đăng Nhập
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./validate.js"></script>
+    </body>
+    <script src="./script.js"></script>
+</html>

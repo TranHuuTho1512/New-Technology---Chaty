@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CHATY</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="chat.css">
+<script src="chat.js"></script>
+</head>
+<body>
+    <nav class="vertical_nav">
+        <ul id="js-menu" class="menu">
+        <a href="#" id="profile" title="Thông tin cá nhân">
+            <img src="./avataUser.png" id="avatarMN" class="avatarMN" style="text-align: center; width: 50px;height: 50px; margin-top: 20%; margin-left: 14px; margin-bottom:30%;border-radius: 100%;">
+        </a>
+         <li class="menu--item" id="trangchat"> <label class="menu--link" title="Nhắn tin">          
+             <i class="menu--icon  fas fa-comment-dots"></i>
+         </li>
+         <li class="menu--item" id="banbe"> <a href="#" class="menu--link" title="Bạn bè">
+             <i class="menu--icon  fas fa-users"  style="margin-left: 20px;"></i></a> 
+         </li>
+         <li class="menu--itemBottom2" id="gioiThieu"> <a href="#" class="menu--link" title="Giới thiệu">
+            <i class="menu--icon  fas fa-question-circle"></i></a> 
+        </li>
+        <li class="menu--itemBottom" id="dangXuat"> <a href="#" class="menu--link" title="Đăng xuất">
+            <i class="menu--icon  fas fa-sign-out-alt" ></i></a> 
+        </li>
+        </ul>
+       </nav>
+       
+        <nav class="vertical_nav2">
+            <div style="height: 60px;" >
+                <div class="inputWithIcons">
+                    <input id="txtTimKiem" name="timKiem" type="text" class="form-control" placeholder="Tìm kiếm" style="width: 210px; margin-top: 20px; margin-left: 20px;"/>
+                <a href="#" id="search">
+                    <i class="fas fa-search" aria-hidden="true" style="margin-left: 190px; padding-top: 10px;"></i>
+                </a>
+                    <a href="#" id="thembb" title="Thêm bạn bè" style="margin-left: 240px; padding: 5px 0px;">
+                    <i class="fas fa-user-plus" style="font-size: 30px; color: black;"></i>
+                    </a> 
+                    <a href="#" id="themNhom" title="Tạo nhóm" style="margin-left: 290px; margin-top:10px;">
+                        <img src="./add group.png">
+                    </a> 
+                </div>
+            </div>
+
+            <div style="height: 1px; background-color: rgb(201, 197, 197); margin-left: 20px;margin-right: 20px;"></div>
+
+            <div style="height: 40px;">
+                <label style="margin-left: 20px; margin-top: 10px;"><b id="tittle">Tất cả các tin nhắn:</b></label>
+            </div>
+		
+            <nav class="vertical_nav2_2_group" id="listBB" style="display: none;">
+                <ul id="js-menuBB" class="menuChat">
+                
+                 </ul>
+            </nav>
+
+            <nav class="vertical_nav2_2" id="listTN">
+                <ul id="js-menuTN" class="menuChat">
+                   
+                 </ul>
+            </nav>
+            
+        </nav>
+        <nav class="vien"></nav>
+
+        <nav class="vertical_nav3" id="nav3_BB" style="display: none;">
+            <div class="tittleChat">
+                <div class="Icons">
+                    <i class="fas fa-user-plus" style="font-size: 30px; color: black; margin-top: 23px; margin-left: 30px;"></i>
+                    <label id="chatVoi" style="margin-top: 20px; margin-left: 10px; position: absolute; font-size: 25px;">Danh sách kết bạn</label>
+                </div>
+            </div>
+
+            <nav class="vertical_nav3_2_group" id="LoiMoiKB">
+                
+            </nav>    
+        </nav>
+        <nav class="vertical_nav3GT" id="nav3_GT">
+            
+            <h4>Chào mừng bạn đến với <b>CHATY PC</b>!</h4>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img width="500px" height="500px" class="carousel" id="carousel" src="https://bitly.com.vn/1v2nfc" alt="" />
+                  </div>
+                  
+                </div>
+                <a class="carousel-control-prev" id="left-btn" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" id="right-btn" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+
+        </nav>
+
+        <nav class="vertical_nav3" id="nav3_TN" style="display: none;">
+            <div class="tittleChat">
+                <div class="Icons">
+                    <a href="#" id="profileChat" name="" title="Thông tin người Chat">
+                        <img src="" id="avatarChatVoi" style="border-radius: 100%; text-align: center; width: 50px;height: 50px; margin-top: 15px; margin-left: 20px; margin-bottom: 30px;">
+                    </a>
+                    <label id="chatVoii" style="margin-top: 20px; margin-left: 10px; position: absolute; font-size: 25px;"></label>
+                    <a href="#" id="thembbvaonhom" title="Thêm bạn bè" style="margin-left: 0px; padding: 5px 0px;">
+                        <i class="fas fa-user-plus" style="font-size: 20px; color: black; right: 10px; margin-top: 30px;position: absolute;"></i>
+                    </a> 
+                </div>
+            </div>
+
+            <nav id="chat" class="overflow-auto vertical_nav3_2">
+
+            </nav>
+            <nav class="vertical_nav3_3">
+                <div class="uploadFile">
+                    <input class="inputFile" type='file' id="fileUpload"/>
+                    <label for="fileUpload" title="Tải File" class="labelAvatar"><i class="fas fa-file-upload" style="font-size: 25px; color: black;"></i></label>
+        
+                </div>
+                <div style="position: absolute; top: 2px; left: 40px;">
+                    <label for="emoji-btn">
+                        <i           
+                            style="font-size: 1.5rem"
+                            id="emoji-btn"
+                            class="far fa-smile"
+                            aria-hidden="true"
+                        ></i>
+                    </label>
+                </div>
+                <div id="nameFile" style="position: absolute; top: 2px; left: 75px;"></div>
+                    <input id="txtChat" name="chat" type="text" class="form-control" placeholder="Nhắn tin" style="right: 600px; margin-top: 5px; left: 10px; margin-top: 30px; "/>                
+                    <div id="send-chat" class="send">
+                        <button id="sendTN" title="Gửi"><i class="fas fa-paper-plane" style="font-size: 25px; color: blue;"></i></button>
+                    </div>
+                   
+            </nav>
+       </nav>
+
+       <!-- Modal Thay doi thong tin-->
+        <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left: 80px;">Thay đổi thông tin tài khoản</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+			            <div class="avatar-upload">
+        
+                            <div class="avatar-preview">
+                                <div class="imgAvatar" id="imagePreview" style="background-image: url(avataUser.png);">
+                                </div>
+                            </div>
+                            <div class="avatar-edit">
+                                <input class="inputFile" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                <label for="imageUpload" title="Sửa Avatar" class="labelAvatar"><i class="fas fa-plus-circle" style="font-size: 25px; color: black;"></i></label>
+
+                            </div>
+                        </div>
+    			
+                        <form action="" method="post" modelAttribute="nguoiDung" id="formUpdateTT" name="formUpdateTT" onsubmit="return(validateTTSDK());">
+    
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Họ tên: </label>
+                                <input id="txtHoTen" type="text" class="form-control" placeholder="Nhập họ tên" onblur="ktraTen()" style="width: 350px; margin-left: 23px;"/>
+                            </div>
+    
+                            <div class="input-group mb-3">
+                                <label id="hoTenError" class="error" style="margin-left: 100px;"></label>
+                            </div>
+                            <div class="form-group row" >
+                                <label class="col-sm-2 col-form-label">Email: </label>
+                                <input id="email" type="text" class="form-control" value="Nguyễn Thanh Tâm" style="width: 350px; margin-left: 23px" readonly>
+                            </div>
+    
+                            <div class="input-group mb-3">
+                                <label id="emailError" class="error" style="margin-left: 100px;"></label>
+                            </div>
+
+                            <div class="form-group row" >
+                                <label class="col-sm-2 col-form-label">Số ĐT:</label>
+                                <input id="sdt" type="text" class="form-control" value="0385672323" style="width: 350px; margin-left: 23px" readonly>
+                            </div>
+    
+                            <div class="input-group mb-3">
+                                <label id="sdtError" class="error" style="margin-left: 100px;"></label>
+                            </div>
+    
+                            <div class="input-group mb-3">
+                                <label>Ngày sinh: </label>
+                                <select style="margin-left: 20px;" name="ngay" id="ngay" size="1"></select>
+                                <select style="margin-left: 20px;" name="thang" id="thang" size="1"></select>
+                                <select style="margin-left: 20px; width: 80px;" name="nam" id="nam" size="1"></select>
+    
+                            </div>
+    
+                            <div class="input-group mb-3">
+                                <label id="ngaySinhError" class="error" style="margin-left: 100px;"></label>
+                            </div>
+    
+                            <div class="input-group mb-3">
+                                <label>Giới tình: </label>
+                                <input style="margin-left: 30px; margin-top: 5px;" type="radio" id="Nam" name="radioGT" value="true" checked>
+                                <span style="margin-left: 10px;">Nam</span>
+                                <input style="margin-left: 10px; margin-top: 5px;" type="radio" id="Nu" name="radioGT" value="false">
+                                <span style="margin-left: 10px;">Nữ</span>
+    
+                            </div>
+                            <div class="input-group mb-3">
+                                <label id="profileError" class="error" style="margin-left: 100px;"></label>
+                            </div>
+                            <div class="row">
+                                <div class="col-12" style="text-align: center">
+                                    <!--Chuyển sang trang chat-->
+                                    <button type="submit" id="saveUpdateProfile" class="btn btn-primary btn-block">Lưu thay đổi</button>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+               
+            </div>
+            </div>
+        </div>
+        <!-- Modal notify video call -->
+        <div class="modal fade" id="notify-call" tabindex="-1">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Cuộc gọi đến</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="body-notify-call" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                <button id="disconnect-call" type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                    <i class="fas fa-phone-slash"></i>
+                </button>
+                <button id="connect-call" type="button" class="btn btn-success">
+                    <i class="fas fa-phone"></i>
+                </button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Modal video call -->
+        <div class="modal fade" id="modal-video-call" tabindex="-1">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Calling...</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <video style="position: absolute; margin-top: 1.5rem; z-index: 999;" id="localStream" width="150px" controls muted></video>
+                    <br />
+                    <video id="remoteStream" width="460px" controls></video>
+                    <br />
+                </div>
+                <div class="modal-footer">
+                <button type="button" id="off-video-call" class="btn btn-danger" data-bs-dismiss="modal">
+                    <i class="fas fa-phone-slash"></i>
+                </button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Modal Thông tin tai khoan -->
+        <div class="modal fade" id="modalXemTT" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left: 120px;">Thông tin tài khoản</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <!-- <div class="card-body"> -->
+                            <div class="center">
+                                <img src="./avataUser.png" id="avatarTT" style="text-align: center; width: 100px;height: 100px; margin-left: 180px;border-radius: 100%;">
+                            </div>
+                            
+                            <div class="buttonKB" style="text-align: center; padding-top: 10px;" id="buttonTTND">
+                                <input type="button" id="nhanTinVoiBan" value="Nhắn tin" style="background-color: #0d6efd; display: none;border-radius: 10px">
+                                <input type="button" id="guiLMKB" value="Kết bạn" style="background-color: #0d6efd; display: none;border-radius: 10px">
+                                <input type="button" id="huyBanBe" value="Hủy bạn bè" style="background-color: #0d6efd; display: none;border-radius: 10px">
+                                <input type="button" id="huyLMKB" value="Hủy lời mời" style="background-color: #0d6efd; display: none;border-radius: 10px">
+                                <input type="button" id="chapNhanLMKB" value="Chấp nhận" style="background-color: #0d6efd; display: none;border-radius: 10px">
+                                <input type="button" id="boLMKB" value="Từ chối" style="background-color: #0d6efd; display: none;border-radius: 10px">
+                                <input type="button" id="chanLMKB" value="Chặn" style="background-color: rgb(231, 42, 36); display: none;border-radius: 10px">
+                                <input type="button" id="boChanLMKB" value="Bỏ chặn" style="background-color: rgb(231, 42, 36); display: none;border-radius: 10px">
+                            </div>
+
+                            <div style="margin-top: 10px; margin-left: 50px;">
+                                <label ><b>Họ tên: </b></label>
+                                <label id="hoTen"></label>
+                            </div>
+                 
+                            <div style="margin-top: 10px; margin-left: 50px;">
+                                <label><b>Ngày sinh: </b></label>
+                                <label id="ngaySinh"></label>
+                            </div>
+                            
+                            <div style="margin-top: 10px; margin-left: 50px;">
+                                <label><b>Giới tính: </b></label>
+                                <label id="gioiTinh"></label>
+                                
+                            </div>
+                            <button style="display: none; position: absolute; right: 0; bottom: 0; margin-right: 1rem; margin-bottom: 1rem;" class="btn btn-outline-secondary" id="video-call" type="button" >
+                                <i class="fas fa-video"></i>
+                            </button>
+                            <div style="margin-top: 10px; margin-left: 50px;" id="emailND">
+                                <label ><b>Email: </b></label>
+                                <label id="emailX"></label>
+                            </div>
+
+                            <div style="margin-top: 10px; margin-left: 50px; margin-bottom: 10px;" id="sdtND">
+                                <label ><b>Số điện thoại: </b></label>
+                                <label id="sdtX"></label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12" style="text-align: center">
+                                    <!--Chuyển sang trang chat-->
+                                    <button type="submit" id="chuyenUpdateProfile" class="btn btn-primary btn-block">Thay đổi thông tin</button>
+                                </div>
+                            </div>
+                        
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="updateMK" style="left: 5px;position: absolute;">Thay đổi mật khẩu</a>
+                    <a href="#" id="deleteTK" class="text-center">Xóa tài khoản</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal Thay doi mat khau-->
+        <div class="modal fade" id="modalUpdateMK" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left: 120px;">Thay đổi mật khẩu</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   
+                            <div style="margin-top: 10px;">
+                                <label>Mật khẩu cũ: </label>
+                                <input id="txtMatKhau" name="matKhauCu" type="password" class="form-control" placeholder="Nhập mật khẩu cũ" onblur="ktraMK()" style="margin-top: 10px;"/>
+                            </div>
+    
+                            <div class="input-group mb-3">
+                                <label id="matKhauError" class="error"></label>
+                            </div>
+                            <div class="form-group">
+                                <label>Mật khẩu mới: </label>
+                                <input id="matKhauMoi" name="matKhauMoi" type="password" class="form-control" placeholder="Nhập mật khẩu mới" onblur="ktraMKMoi()" style="margin-top: 10px;"/>
+                            </div>
+    
+                            <div class="input-group mb-3">
+                                <label id="matKhauMoiError" class="error"></label>
+                            </div>
+    
+                            <div class="form-group">
+                                <label>Nhập lại mật khẩu mới: </label>
+                                <input id="txtNhapLaiMatKhau" name="nhapLaiMatKhauMoi" type="password" class="form-control" placeholder="Nhập lại mật khẩu mới" onblur="ktraNLMKM()" style="margin-top: 10px;"/>
+                            </div>
+    
+                            <div class="input-group mb-3">
+                                <label id="nhapLaiMatKhauError" class="error"></label>
+                            </div>
+                            <div class="row">
+                                <div class="col-12" style="text-align: center">
+                                    <!--Chuyển sang trang chat-->
+                                    <button type="submit" id="saveUpdateMK" class="btn btn-primary btn-block">Lưu thay đổi</button>
+                                </div>
+                            </div>
+                        
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal Thông tin chat -->
+        <div class="modal fade" id="modalXemTTNhom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left: 120px;">Thông tin Nhóm</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <!-- <div class="card-body"> -->
+                            <div class="avatar-upload">
+            
+                                <div class="avatar-preview">
+                                    <div class="imgAvatar" id="imagePreviewNhomCN" style="background-image: url(avataUser.png);">
+                                    </div>
+                                </div>
+                                <div class="avatar-edit" id="editavatarnhom">
+                                    <input class="inputFile" type='file' id="imageUploadNhomCN" accept=".png, .jpg, .jpeg" />
+                                    <label for="imageUploadNhomCN" title="Sửa Avatar" class="labelAvatar"><i class="fas fa-plus-circle" style="font-size: 25px; color: black;"></i></label>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="margin-left: 100px;margin-top: 10px;position: absolute;">Tên nhóm: </label>
+                                <input id="txtTenNhomCN" type="text" class="form-control" placeholder="Nhập tên nhóm" style="width: 310px; position: relative;margin-left: 100px; margin-top: 40px;"/>
+                            </div>
+                            
+                            <div class="buttonKB" style="text-align: center; padding-top: 10px;">
+                                <input type="button" id="capnhatNhomChat" value="Cập nhật" style="background-color: #0d6efd;">
+                                <input type="button" id="roiNhom" value="Rời nhóm" style="background-color: #0d6efd;">
+                                
+                            </div>
+                            <div style="text-align: center;">
+                                <label id="sltvnhom" style="size: 10px;">Số lượng thành viên: </label>
+                            </div>
+                            <div id="qlyNhom" style="margin-top: 10px; display: none;">
+                                <label style="size: 10px; margin-left: 50px;">Thành viên: </label>
+                                <div class="listDSTV">
+                                    <ul id="js-menuDSTV" class="menuDSTV">
+                                        <!-- <div class='menuDSTV--item'> <label class='menu--link1' >
+                                            <img src='https://chaty-api.herokuapp.com/file/avatar/smile.png' style='border-radius: 100%; text-align: center; width: 40px;height: 40px; margin-top: 1px; margin-left: 20px; margin-bottom: 30px;'>
+                                            <label style='margin-top: 2px; position: absolute; margin-left: 10px;'><b>Nguyen Hanh</b></label>
+                                            </label><div style='height: 1px; background-color: rgb(201, 197, 197);'></div>
+                                        </div>
+                                        <input type="button" id="kick" name="id" value="Out" style="background-color:white;border-radius: 10px; position: absolute;top: 5px; right: 10px; bottom: 2px; height: 30px; font-size: 13px;">
+                                        <input type="button" id="chuyenAdmin" name="id" value="Chuyển admin" style="background-color:white;border-radius: 10px; position: absolute;top: 5px; right: 57px; bottom: 2px;height: 30px; font-size: 13px;"> -->
+                                    </ul> 
+                                </div>
+                            </div>
+                            
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal Xóa TK-->
+        <div class="modal fade" id="modalXoaTK" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left: 150px;">Xóa tài khoản</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   
+                            <div style="margin-top: 10px;">
+                                <label>Mật khẩu xác nhận: </label>
+                                <input id="txtMatKhauXN" name="matKhauXN" type="password" class="form-control" placeholder="Nhập mật khẩu xác nhận" onblur="ktraMKXN()" style="margin-top: 10px;"/>
+                            </div>
+    
+                            <div class="input-group mb-3">
+                                <label id="matKhauXNError" class="error"></label>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-12" style="text-align: center">
+                                    <!--Chuyển sang trang chat-->
+                                    <button type="submit" id="xoaTK" class="btn btn-primary btn-block">Xác nhận</button>
+                                </div>
+                            </div>
+                        
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal Tìm kiếm-->
+        <div class="modal fade" id="modalTimKiem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left: 110px;">Tìm kiếm người dùng</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <!-- <div class="card-body"> -->
+                        <div class="inputWithIcons">
+                            <input id="txtTimKiemND" name="timKiem" type="text" class="form-control" placeholder="Tìm kiếm" style="width: 90%; margin-left: 20px;"/>
+                            <a href="#" id="searchND">
+                            <i class="fas fa-search" aria-hidden="true" style="right: 25px; padding-top: 10px;"></i>
+                            </a>
+                        </div>
+                        <div style=" margin-left: 20px;">
+                            Người dùng:
+                        </div>
+                        <div style="height: 1px; background-color: rgb(201, 197, 197); margin-left: 20px;margin-right: 30px; margin-top: 5px;"></div>
+                        <div class="listDSND">
+                            <ul id="js-menuDSND" class="menuDSNDTK">
+                                
+                            </ul>
+                        </div>
+                       
+                </div>
+                    
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal Tao nhom-->
+        <div class="modal fade" id="modalNhomChat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabelTaoNhom" style="margin-left: 170px;">Tạo nhóm</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <!-- <div class="card-body"> -->
+                        
+                            <div class="avatar-uploadNhom">
+        
+                                <div class="avatar-preview">
+                                    <div class="imgAvatar" id="imagePreviewNhom" style="background-image: url(avataUser.png);">
+                                    </div>
+                                </div>
+                                <div class="avatar-edit" id="editavatarnhom">
+                                    <input class="inputFile" type='file' id="imageUploadNhom" accept=".png, .jpg, .jpeg" />
+                                    <label for="imageUploadNhom" title="Sửa Avatar" class="labelAvatar"><i class="fas fa-plus-circle" style="font-size: 25px; color: black;"></i></label>
+    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" style="margin-left: 140px;margin-top: 10px;position: absolute;">Tên nhóm: </label>
+                                <input id="txtTenNhom" type="text" class="form-control" placeholder="Nhập tên nhóm" style="width: 310px; position: relative;margin-left: 140px; margin-top: 40px;"/>
+                            </div>
+                            <div style="padding-top:40px; margin-left: 20px;">
+                                Thêm bạn vào nhóm:
+                            </div>
+                            <div style="height: 1px; background-color: rgb(201, 197, 197); margin-left: 20px;margin-right: 30px; margin-top: 5px;"></div>
+                            <div class="listDSND">
+                                <ul id="js-menuBBVN" class="menuDSND">
+                                   
+                                </ul>
+                                    
+                            </div>
+                            <div class="input-group mb-3">
+                                <label id="taoNhomError" class="error"></label>
+                            </div>
+                            <div class="row">
+                                <div class="col-12" style="text-align: center">
+                                    <button type="submit" id="taoNhomChatMoi" class="btn btn-primary btn-block">Tạo nhóm</button>
+                                </div>
+                            </div>
+                    <!-- </div> -->
+                </div>
+                    
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal Thêm ban be vao nhom-->
+        <div class="modal fade" id="modalthembbNhomChat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabelTaoNhom" style="margin-left: 120px;">Thêm bạn bè vào nhóm</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="center">
+                        <img src="./avataUser.png" id="avatarNhom" style="text-align: center; width: 90px;height: 90px; margin-left: 190px; border-radius: 100%">
+                    </div>
+                    <div style="text-align: center;">
+                        <label id="tenNhom" style="font-size: 20px;"></label>
+                    </div>
+                    
+                    <div style="padding-top:0px; margin-left: 20px;">
+                        Thêm bạn vào nhóm:
+                    </div>
+                    <div style="height: 1px; background-color: rgb(201, 197, 197); margin-left: 20px;margin-right: 30px; margin-top: 5px;"></div>
+                    <div class="listDSND">
+                        <ul id="js-menuTBBVN" class="menuDSND">
+                        </ul> 
+                            
+                    </div>
+                    <div class="input-group mb-3">
+                        <label id="themNhomError" class="error"></label>
+                    </div>
+                    <div class="row">
+                        <div class="col-12" style="text-align: center">
+                            <!--Chuyển sang trang chat-->
+                            <button type="submit" id="thenbbNhomChat" class="btn btn-primary btn-block" style="display: none;">Thêm vào nhóm</button>
+                        </div>
+                    </div>
+                        
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <script src="../validate.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+</body>
+</html>

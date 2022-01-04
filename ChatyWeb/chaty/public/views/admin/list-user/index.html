@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="./list-user.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <title>Quản lí user</title>
+    </head>
+    <body style="background-color:#1b2a49;">
+        <h3 style="text-align: center;"><b style="color: white;">Quản lý tài khoản</b></h3>
+        <div class="center">
+            <div style="margin-top: 0rem;">
+                <table class="table table-striped" style="background-color: white;">
+                    <thead>
+                        <th>STT</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </thead>
+                    <tbody id="list"></tbody>
+                </table>
+            </div>
+
+            <ul id="pagination" class="pagination"></ul>
+        </div>
+    </body>
+    <script src="./list-user.js"></script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Đăng ký | CHATY</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+
+    <div id="wrapper">
+	<div class="center" >
+		<div class="card card-outline card-primary">
+			<div class="card-header text-center">
+				<a href="" class="h1"><b>Đăng Ký</b></a>
+			</div>
+			<div class="card-body">
+				<!-- <p class="center" style="font-size: 20px; ">Đăng ký tài khoản mới</p> -->
+                <br>
+
+				<form action="" method="post" id="formDK"name="formDK" modelAttribute="nguoiDung" onsubmit="return(validateDK());">
+
+					<div class="inputWithIcon">
+						<input id="txtSDT" name="sdt" type="text" onblur="ktraSDT()" class="form-control" placeholder="Số điện thoại" />
+						<i class="fas fa-phone" aria-hidden="true"></i>
+					</div>
+
+					<div class="input-group mb-3">
+						<label id="sdtError" class="error"></label>
+					</div>
+
+					<div class="inputWithIcon">
+						<input id="email" name="email" class="form-control" placeholder="Email" onblur="ktraEmail()" />
+						<i class="fas fa-envelope" aria-hidden="true"></i>
+						
+					</div>
+
+					<div class="input-group mb-3">
+						<label id="emailError" class="error"></label>
+					</div>
+					
+					<div class="inputWithIcon">
+						<input id="txtMatKhau" name="matKhau" onblur="ktraMK()" type="password" class="form-control" 
+							placeholder="Mật khẩu" />
+							<i class="fas fa-lock" aria-hidden="true"></i>
+					</div>
+
+					<div class="input-group mb-3">
+						<label id="matKhauError" class="error"></label>
+					</div>
+
+					<div class="inputWithIcon">
+						<input type="password" class="form-control" id="txtNhapLaiMatKhau" onblur="ktraNLMK()"
+							name="nhapLaiMatKhau" placeholder="Nhập lại mật khẩu">
+							<i class="far fa-check-circle" aria-hidden="true"></i>
+					</div>
+
+					<div class="input-group mb-3">
+						<label id="nhapLaiMatKhauError" class="error"></label>
+					</div>
+
+					<div class="row">
+
+						<div class="col-12" style="text-align: center">
+							<!--Chuyển sang trang SMS-->
+							<button id="dangky" type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+						</div>
+					</div>
+				</form>
+				<br>
+				<!-- Chuyển qua trang login -->
+				<a href="" id="dangnhap" class="text-center" >Bạn đã có tài khoản rồi</a>
+			</div>
+		</div>
+	</div>
+    </div>
+	<script src="../validate.js"></script>
+	<script src="./signup.js"></script>
+</body>
+</html>

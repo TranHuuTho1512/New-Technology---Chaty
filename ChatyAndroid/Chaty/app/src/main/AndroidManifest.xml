@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.chaty">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/chaty"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ChatY"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ChangePassForgot"
+            android:exported="true" />
+        <activity
+            android:name=".ChangeAdmin"
+            android:exported="true" />
+        <activity
+            android:name=".MemberGroup"
+            android:exported="true" />
+        <activity
+            android:name=".RemoveFromGroup"
+            android:exported="true"
+            />
+        <activity
+            android:name=".CreateGroupChat"
+            android:exported="true" />
+        <activity
+            android:name=".AddToGroup"
+            android:exported="true" />
+        <activity
+            android:name=".ForgotPass"
+            android:exported="true" />
+        <activity
+            android:name=".MenuChat"
+            android:exported="true" />
+        <activity
+            android:name=".FriendHome"
+            android:exported="true"
+            android:label="@string/title_activity_friend_home" />
+        <activity
+            android:name=".CreateProfile"
+            android:exported="true" />
+        <activity
+            android:name=".VetifyOTP"
+            android:exported="true" />
+        <activity
+            android:name=".Register"
+            android:exported="true" />
+        <activity
+            android:name=".ChangePassword"
+            android:exported="true" />
+        <activity
+            android:name=".UpdateProfile"
+            android:exported="true" />
+        <activity
+            android:name=".Profile"
+            android:exported="true" />
+        <activity
+            android:name=".Chat"
+            android:exported="true" />
+        <activity
+            android:name=".FriendSuggestionsProfile"
+            android:exported="true" />
+        <activity
+            android:name=".FriendRequestProfile"
+            android:exported="true" />
+        <activity
+            android:name=".FriendSenderProfile"
+            android:exported="true" />
+        <activity
+            android:name=".FriendProfile"
+            android:exported="true" />
+        <activity
+            android:name=".PhoneBook"
+            android:exported="true" />
+        <activity
+            android:name=".Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
